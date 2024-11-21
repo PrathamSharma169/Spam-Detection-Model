@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 import joblib
 
-
 dataset= pd.read_csv('spam.csv', encoding='latin1')
 
 import re
@@ -47,15 +46,15 @@ classifier_2.fit(x_train,y_train)
 joblib.dump(classifier_2, 'spam_classifier_model.pkl')
 
 
-# y_predict= classifier.predict(x_test)
+y_predict= classifier.predict(x_test)
 # print(np.concatenate((y_predict.reshape(len(y_predict),1), y_test.reshape(len(y_test),1)),1))
 
-# y_predict_2= classifier_2.predict(x_test)
+y_predict_2= classifier_2.predict(x_test)
 
-# from sklearn.metrics import accuracy_score, confusion_matrix
-# cm=confusion_matrix(y_test,y_predict)
-# print(cm)
-# print(accuracy_score(y_test,y_predict))
-# print(accuracy_score(y_test,y_predict_2))
+from sklearn.metrics import accuracy_score, confusion_matrix
+cm=confusion_matrix(y_test,y_predict)
+print(cm)
+print(accuracy_score(y_test,y_predict))
+print(accuracy_score(y_test,y_predict_2))
 
 #Doing prediction with the trained model
